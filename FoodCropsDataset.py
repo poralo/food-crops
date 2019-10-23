@@ -15,10 +15,17 @@ class FoodCropsDataset:
         self.__unitMeasurementIndex = {}
 
     def load(self, datasetPath: str):
-        dataframe = pandas.read_csv("FeedGrains.csv")
+        dataframe = pandas.read_csv(datasetPath)
 
-        for index, row in dataframe.iterrows():
-            self.factory.createIndicator(index)
+        for index, row in dataframe.head().iterrows():
+            print(index, row)
+
+            indicator = self.factory.createIndicator(index, row["SC_Frequency_ID"], row["SC_Frequency_Desc"], row["SC_Geography_ID"], IndicatorGroup.PRICES, Price())
 
     def findMeasurements(self, commodityGroup: CommodityGroup = None, indicatorGroup: IndicatorGroup = None, geographicalLocation: str = None, unit: Unit = None) -> list:
         pass
+
+if __name__ == "__main__":
+    f = FoodCropFactory()
+    fcd = FoodCropsDataset(f)
+    fcd.load("FeedGrains.csv")
