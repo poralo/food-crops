@@ -21,4 +21,26 @@ class FoodCropsDataset:
             self.factory.createIndicator(index)
 
     def findMeasurements(self, commodityGroup: CommodityGroup = None, indicatorGroup: IndicatorGroup = None, geographicalLocation: str = None, unit: Unit = None) -> list:
-        pass
+        MeasurementList = ()
+        if commodityGroup :
+            for list in commodityType :
+                for item in list :
+                    if item == commodityGroup and item not in MeasurementList :
+                        MeasurementList.add(item) // en supposant que les items dans nos dico soient des measurements
+        if IndicatorGroup :
+            for list in commodityType :
+                for item in list :
+                    if item == commodityGroup and item not in MeasurementList :
+                        MeasurementList.add(item)
+        if geographicalLocation :
+            for list in commodityType :
+                for item in list :
+                    if item == commodityGroup and item not in MeasurementList :
+                        MeasurementList.add(item)
+        if unit :
+            for list in commodityType :
+                for item in list :
+                    if item == commodityGroup and item not in MeasurementList :
+                        MeasurementList.add(item)
+
+        return MeasurementList
