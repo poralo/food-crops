@@ -6,6 +6,8 @@ from MeasurementType import MeasurementType
 from Commodity import Commodity
 from Measurement import Measurement
 
+from Weight import Weight
+
 
 class FoodCropFactory():
 
@@ -19,7 +21,8 @@ class FoodCropFactory():
         pass
 
     def createWeight(self, id: int, weight: float) -> Unit:
-        pass
+        w = Weight(id, weight)
+        return w
 
     def createSurface(self, id: int) -> Unit:
         pass
