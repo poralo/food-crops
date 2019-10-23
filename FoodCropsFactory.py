@@ -14,29 +14,29 @@ class FoodCropFactory():
     def __init__(self):
         pass
 
-    def createVolume(self, id: int) -> Unit:
+    def createVolume(self, id: int) -> Volume:
         pass
 
-    def createPrice(self, id: int) -> Unit:
+    def createPrice(self, id: int) -> Price:
         pass
 
-    def createWeight(self, id: int, weight: float) -> Unit:
+    def createWeight(self, id: int, weight: float) -> Weight:
         w = Weight(id, weight)
         return w
 
-    def createSurface(self, id: int) -> Unit:
+    def createSurface(self, id: int) -> Surface:
         pass
 
-    def createCount(self, id: int, what: str) -> Unit:
+    def createCount(self, id: int, what: str) -> Count:
         pass
 
-    def createRatio(self, id: int) -> Unit:
+    def createRatio(self, id: int) -> Ratio:
         pass
 
-    def createUnitRatio(self, id: int, unit1: Unit, unit2: Unit) -> Unit:
+    def createUnitRatio(self, id: int, unit1: Unit, unit2: Unit) -> UnitRation:
         pass
 
-    def createCommodity(self, group: CommodityGroup, id: int, name: str) -> Unit:
+    def createCommodity(self, group: CommodityGroup, id: int, name: str) -> Commodity:
         pass
 
     def createIndicator(self, id: int, frequency: int, freqDesc: str, geogLocation: str, indicatorGroup: IndicatorGroup,
