@@ -1,4 +1,9 @@
 from Unit import Unit
+from CommodityGroup import CommodityGroup
+from IndicatorGroup import IndicatorGroup
+from MeasurementType import MeasurementType
+from Commodity import Commodity
+from Indicator import Indicator
 
 
 class FoodCropFactory():
@@ -6,7 +11,7 @@ class FoodCropFactory():
     def __init__(self):
         pass
 
-    def createVolume(self, id: int):
+    def createVolume(self, id: int) -> Unit:
         # Return Unit
         pass
 
