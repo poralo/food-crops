@@ -1,11 +1,12 @@
 from Unit import Unit
 
+
 class FoodCropFactory():
 
     def __init__(self):
         pass
 
-    def createVolume(self,id: int):
+    def createVolume(self, id: int):
         # Return Unit
         pass
 
@@ -37,7 +38,8 @@ class FoodCropFactory():
         # Return Unit
         pass
 
-    def createIndicator(self, id: int, frequency: int, freqDesc: str, geogLocation: str, indicatorGroup: IndicatorGroup, unit:Unit):
+    def createIndicator(self, id: int, frequency: int, freqDesc: str, geogLocation: str, indicatorGroup: IndicatorGroup,
+                        unit: Unit):
         # Return Indicator
         pass
 
@@ -45,6 +47,7 @@ class FoodCropFactory():
         # Return MeasurementType
         pass
 
-    def createMeasurement(self, id: int, year: int, value: float, timeperiodId: int, timeperiodDesc: str, type: MeasurementType, commodity: Commodity, indicator: Indicator):
+    def createMeasurement(self, id: int, year: int, value: float, timeperiodId: int, timeperiodDesc: str,
+                          type: MeasurementType, commodity: Commodity, indicator: Indicator):
         # Return Measurement
         pass
