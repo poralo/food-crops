@@ -7,6 +7,11 @@ class FoodCropsDataset:
     def __init__(self, factory: FoodCropFactory):
         self.factory = factory
 
+        self.__commodityMeasurementIndex = {}
+        self.__indicatorGroupMeasurementIndex = {}
+        self.__locationMeasurementIndex = {}
+        self.__unitMeasurementIndex = {}
+
     def load(self, datasetPath: str):
         pass
 
