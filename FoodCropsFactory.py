@@ -9,34 +9,44 @@ class FoodCropFactory():
     def createVolume(self, id: int) -> Unit:
         pass
 
-    def createPrice(self, id: int) -> Unit:
+    def createPrice(self, id: int):
+        # Return Unit
         pass
 
-    def createWeight(self, id: int, weight: float) -> Unit:
+    def createWeight(self, id: int, weight: float):
+        # Return Unit
         pass
 
-    def createSurface(self, id: int) -> Unit:
+    def createSurface(self, id: int):
+        # Return Unit
         pass
 
-    def createCount(self, id: int, what: str) -> Unit:
+    def createCount(self, id: int, what: str):
+        # Return Unit
         pass
 
-    def createRatio(self, id: int) -> Unit:
+    def createRatio(self, id: int):
+        # Return Unit
         pass
 
-    def createUnitRatio(self, id: int, unit1: Unit, unit2: Unit) -> Unit:
+    def createUnitRatio(self, id: int, unit1: Unit, unit2: Unit):
+        # Return Unit
         pass
 
-    def createCommodity(self, group: CommodityGroup, id: int, name: str) -> Unit:
+    def createCommodity(self, group: CommodityGroup, id: int, name: str):
+        # Return Unit
         pass
 
     def createIndicator(self, id: int, frequency: int, freqDesc: str, geogLocation: str, indicatorGroup: IndicatorGroup,
-                        unit: Unit) -> Indicator:
+                        unit: Unit):
+        # Return Indicator
         pass
 
-    def createMeasurement(self, id: int, description: str) -> MeasurementType:
+    def createMesurement(self, id: int, description: str):
+        # Return MeasurementType
         pass
 
     def createMeasurement(self, id: int, year: int, value: float, timeperiodId: int, timeperiodDesc: str,
-                          type: MeasurementType, commodity: Commodity, indicator: Indicator) -> Measurement:
+                          type: MeasurementType, commodity: Commodity, indicator: Indicator):
+        # Return Measurement
         pass
