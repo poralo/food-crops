@@ -18,7 +18,10 @@ from UnitRatio import UnitRatio
 class FoodCropFactory():
 
     def __init__(self):
-        pass
+        self.__unitsRegistry = {}
+        self.__indicatorsRegistry = {}
+        self.__commodityRegistry = {}
+        self.__measurementTypeRegistry = {}
 
     def createVolume(self, id: int) -> Unit:
         v = Volume(id)
@@ -28,11 +31,11 @@ class FoodCropFactory():
         p = Price(id)
         return p
 
-    def createWeight(self, id: int, weight: float) -> Weight:
+    def createWeight(self, id: int, weight: float) -> Unit:
         w = Weight(id, weight)
         return w
 
-    def createSurface(self, id: int) -> Surface:
+    def createSurface(self, id: int) -> Unit:
         s = Surface(id)
         return s
 
