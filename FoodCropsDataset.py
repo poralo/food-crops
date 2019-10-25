@@ -28,7 +28,7 @@ class FoodCropsDataset:
             for list in commodityType :
                 for item in list :
                     if item == commodityGroup and item not in MeasurementList :
-                        MeasurementList.add(item) // en supposant que les items dans nos dico soient des measurements
+                        MeasurementList.add(item) # en supposant que les items dans nos dico soient des measurements
         if IndicatorGroup :
             for list in commodityType :
                 for item in list :
@@ -46,7 +46,7 @@ class FoodCropsDataset:
                         MeasurementList.add(item)
 
         return MeasurementList
-        
+
 if __name__ == "__main__":
     f = FoodCropFactory()
     fcd = FoodCropsDataset(f)

@@ -18,7 +18,10 @@ from UnitRatio import UnitRatio
 class FoodCropFactory():
 
     def __init__(self):
-        pass
+        self.__unitsRegistry = {}
+        self.__indicatorsRegistry = {}
+        self.__commodityRegistry = {}
+        self.__measurementTypeRegistry = {}
 
     def createVolume(self, id: int) -> Unit:
         # Vérifier que l'unité n'existe pas déjà
