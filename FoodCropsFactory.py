@@ -21,6 +21,7 @@ class FoodCropFactory():
         pass
 
     def createVolume(self, id: int) -> Unit:
+        # Vérifier que l'unité n'existe pas déjà
         v = Volume(id)
         return v
 
