@@ -52,8 +52,10 @@ class FoodCropFactory():
         return u
 
     def createCommodity(self, group: CommodityGroup, id: int, name: str) -> Unit:
-        c = Commodity(group, id, name)
-        return c
+        if id not in commodityRegistry :
+            c = Commodity(group, id, name)
+            commodityRegistry[id] = group,name
+            return c
 
     def createIndicator(self, id: int, frequency: int, freqDesc: str, geogLocation: str, indicatorGroup: IndicatorGroup,
                         unit: Unit) -> Indicator:
