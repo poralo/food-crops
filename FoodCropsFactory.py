@@ -24,6 +24,7 @@ class FoodCropFactory():
         self.__measurementTypeRegistry = {}
 
     def createVolume(self, id: int) -> Unit:
+        # Vérifier que l'unité n'existe pas déjà
         v = Volume(id)
         return v
 
