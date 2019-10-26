@@ -13,6 +13,7 @@ from Surface import Surface
 from Count import Count
 from Ratio import Ratio
 from UnitRatio import UnitRatio
+import pandas
 
 
 class FoodCropFactory():
@@ -24,9 +25,30 @@ class FoodCropFactory():
         self.__measurementTypeRegistry = {}
 
     def createVolume(self, id: int) -> Unit:
-        # Vérifier que l'unité n'existe pas déjà
-        v = Volume(id)
-        return v
+        indice = 0
+        ligne = 0
+        nbr_lignes = 0
+        fd = open('FeedGrains.csv')
+        for line in fd:
+            nbr_lignes +=1
+
+        while indice != id:
+            if ligne > nbr_lignes:
+                print("Pas d'indice correspondant")
+                break
+            else:
+                indice += 1
+                ligne+=1
+        dataframe = pandas.read_csv("Feedgrains.csv")
+        unitName = dataframe['SC_Unit_ID'][ligne]
+        name = "" + unitName
+        unitVolume = Unit(id, name)
+        
+        if unitVolume not in self.__unitsRegistry:
+            self.__unitsRegistry[(id, unitVolume)]
+        else:
+            print("L'unité est déjà présente dans le dictionnaire")
+
 
     def createPrice(self, id: int) -> Unit:
         p = Price(id)
