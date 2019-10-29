@@ -23,7 +23,7 @@ Exemple :
 from CommodityGroup import CommodityGroup
 from IndicatorGroup import IndicatorGroup
 
-# Trouver le prix qui correspondent aux cultures de sorghum.
+# Trouver la mesure du prix qui correspondent aux cultures de sorghum.
 fcd.findMeasurements(CommodityGroup.SORGHUM, IndicatorGroup.PRICES)
 ```
 
