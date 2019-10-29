@@ -21,7 +21,7 @@ class FoodCropsDataset:
         dataframe = dataframe.dropna()
         dataframe.reset_index(drop=True)
 
-        for index, row in dataframe.head(89).iterrows():
+        for index, row in dataframe.iterrows():
             # Récupération du groupe de l'indicateur
             indicatorGroup = IndicatorGroup(row["SC_Group_ID"])
             # Création/récupération de l'unité de l'indicateur
@@ -61,6 +61,37 @@ class FoodCropsDataset:
 
     def findMeasurements(self, commodityGroup: CommodityGroup = None, indicatorGroup: IndicatorGroup = None, geographicalLocation: str = None, unit: Unit = None) -> list:
         measurementList = self.__measurements[:]
+        if commodityGroup is not None:
+            new_list = []
+            l = self.__commodityMeasurementIndex.get(commodityGroup, [])
+            for measure in measurementList:
+                if measure in l:
+                    new_list.append(measure)
+            measurementList = new_list
+
+        if indicatorGroup is not None:
+            new_list = []
+            l = self.__indicatorGroupMeasurementIndex.get(indicatorGroup, [])
+            for measure in measurementList:
+                if measure in l:
+                    new_list.append(measure)
+            measurementList = new_list
+
+        if geographicalLocation is not None:
+            new_list = []
+            l = self.__locationMeasurementIndex.get(geographicalLocation, [])
+            for measure in measurementList:
+                if measure in l:
+                    new_list.append(measure)
+            measurementList = new_list
+        
+        if unit is not None:
+            new_list = []
+            l = self.__unitMeasurementIndex.get(unit, [])
+            for measure in measurementList:
+                if measure in l:
+                    new_list.append(measure)
+            measurementList = new_list
 
         return measurementList
 
@@ -69,5 +100,5 @@ if __name__ == "__main__":
     fcd = FoodCropsDataset(f)
     fcd.load("FeedGrains.csv")
 
-    print(fcd.findMeasurements(CommodityGroup.SORGHUM))
+    print(fcd.findMeasurements(CommodityGroup.SORGHUM, IndicatorGroup.TRANSPORTATION))
 
