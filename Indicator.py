@@ -1,7 +1,8 @@
 from IndicatorGroup import IndicatorGroup
 from Unit import Unit
+from Describable import Describable
 
-class Indicator():
+class Indicator(Describable):
 
     def __init__(self, id: int, frequency: int, freqDesc: str, geogLocation: str, indicatorGroup: IndicatorGroup, unit: Unit):
         self.id = id
@@ -10,4 +11,7 @@ class Indicator():
         self.__frequency = frequency
         self.__frequencyDesc = freqDesc
         self.__geogLocation = geogLocation
+
+    def describe(self):
+        return f'Indicator {self.id}'
         

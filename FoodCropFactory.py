@@ -2,7 +2,6 @@ from Unit import Unit
 from CommodityGroup import CommodityGroup
 from IndicatorGroup import IndicatorGroup
 from Indicator import Indicator
-from MeasurementType import MeasurementType
 from Commodity import Commodity
 from Measurement import Measurement
 
@@ -13,7 +12,6 @@ from Surface import Surface
 from Count import Count
 from Ratio import Ratio
 from UnitRatio import UnitRatio
-import pandas
 
 
 class FoodCropFactory():
@@ -22,7 +20,6 @@ class FoodCropFactory():
         self.__unitsRegistry = {}
         self.__indicatorsRegistry = {}
         self.__commodityRegistry = {}
-        self.__measurementTypeRegistry = {}
 
     def createVolume(self, id: int) -> Unit:
         if id not in self.__unitsRegistry:
@@ -97,15 +94,6 @@ class FoodCropFactory():
         else:
             return self.__indicatorsRegistry[id]
 
-    def createMeasurementType(self, id: int, description: str) -> MeasurementType:
-        if id not in self.__measurementTypeRegistry:
-            m = MeasurementType(id, description)
-            self.__measurementTypeRegistry[id] = m
-            return m
-        else:
-            return self.__measurementTypeRegistry[id]
-
-    def createMeasurement(self, id: int, year: int, value: float, timeperiodId: int, timeperiodDesc: str,
-                          type: MeasurementType, commodity: Commodity, indicator: Indicator) -> Measurement:
+    def createMeasurement(self, id: int, year: int, value: float, timeperiodId: int, timeperiodDesc: str, commodity: Commodity, indicator: Indicator) -> Measurement:
         m = Measurement(id, year, value, timeperiodDesc, type, commodity, indicator)
         return m

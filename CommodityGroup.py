@@ -13,4 +13,4 @@ class CommodityGroup(Enum) :
     GRAIN_PROTEIN_FEEDS = 15
     PROCESSED_FEEDS = 19
     ENERGY_FEEDS = 13
-    OTHER = 21
+    OTHER = 18

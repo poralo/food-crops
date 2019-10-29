@@ -14,10 +14,14 @@ class FoodCropsDataset:
         self.__locationMeasurementIndex = {}
         self.__unitMeasurementIndex = {}
 
+        self.__measurements = []
+
     def load(self, datasetPath: str):
         dataframe = pandas.read_csv(datasetPath)
+        dataframe = dataframe.dropna()
+        dataframe.reset_index(drop=True)
 
-        for index, row in dataframe.head().iterrows():
+        for index, row in dataframe.head(89).iterrows():
             # Récupération du groupe de l'indicateur
             indicatorGroup = IndicatorGroup(row["SC_Group_ID"])
             # Création/récupération de l'unité de l'indicateur
@@ -26,45 +30,44 @@ class FoodCropsDataset:
             # Création/récupération de l'indicateur
             indicator = self.factory.createIndicator(row["SC_Attribute_ID"], row["SC_Frequency_ID"], row["SC_Frequency_Desc"], row["SC_Geography_ID"], indicatorGroup, unit)
             
-            # Récupération de groupe de la commodité
+            # Récupération de groupe des cultures vivières
             commodityGroup = CommodityGroup(row["SC_GroupCommod_ID"])
-            # Crétion/récupération de la commodité
+            # Crétion/récupération de la culture vivière
             commodity = self.factory.createCommodity(commodityGroup, row["SC_Commodity_ID"], row["SC_Commodity_Desc"])
-            
-            # Création/récupération du type de mesure
-            measurementType = self.factory.createMeasurementType(0, "Ceci est un test")
-
+    
             # Création de la mesure
-            measurement = self.factory.createMeasurement(index, row["Year_ID"], row["Amount"], row["Timeperiod_ID"], row["Timeperiod_Desc"], measurementType, commodity, indicator)
+            measurement = self.factory.createMeasurement(index, row["Year_ID"], row["Amount"], row["Timeperiod_ID"], row["Timeperiod_Desc"], commodity, indicator)
+            self.__measurements.append(measurement)
+
+            if commodityGroup in self.__commodityMeasurementIndex:
+                self.__commodityMeasurementIndex[commodityGroup].append(measurement)
+            else:
+                self.__commodityMeasurementIndex[commodityGroup] = [measurement]
+
+            if indicatorGroup in self.__indicatorGroupMeasurementIndex:
+                self.__indicatorGroupMeasurementIndex[indicatorGroup].append(measurement)
+            else:
+                self.__indicatorGroupMeasurementIndex[indicatorGroup] = [measurement]
+
+            if row["SC_GeographyIndented_Desc"] in self.__locationMeasurementIndex:
+                self.__locationMeasurementIndex[row["SC_GeographyIndented_Desc"]].append(measurement)
+            else:
+                self.__locationMeasurementIndex[row["SC_GeographyIndented_Desc"]] = [measurement]
+
+            if unit in self.__unitMeasurementIndex:
+                self.__unitMeasurementIndex[unit].append(measurement)
+            else:
+                self.__unitMeasurementIndex[unit] = [measurement]
 
     def findMeasurements(self, commodityGroup: CommodityGroup = None, indicatorGroup: IndicatorGroup = None, geographicalLocation: str = None, unit: Unit = None) -> list:
-        MeasurementList = ()
-        if commodityGroup :
-            for list in commodityType :
-                for item in list :
-                    if item == commodityGroup and item not in MeasurementList :
-                        MeasurementList.add(item) # en supposant que les items dans nos dico soient des measurements
-        if IndicatorGroup :
-            for list in commodityType :
-                for item in list :
-                    if item == commodityGroup and item not in MeasurementList :
-                        MeasurementList.add(item)
-        if geographicalLocation :
-            for list in commodityType :
-                for item in list :
-                    if item == commodityGroup and item not in MeasurementList :
-                        MeasurementList.add(item)
-        if unit :
-            for list in commodityType :
-                for item in list :
-                    if item == commodityGroup and item not in MeasurementList :
-                        MeasurementList.add(item)
+        measurementList = self.__measurements[:]
 
-        return MeasurementList
+        return measurementList
 
 if __name__ == "__main__":
     f = FoodCropFactory()
     fcd = FoodCropsDataset(f)
     fcd.load("FeedGrains.csv")
 
-    print(fcd.findMeasurements())
+    print(fcd.findMeasurements(CommodityGroup.SORGHUM))
+
