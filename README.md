@@ -20,6 +20,9 @@ Pour retrouver la valeur d'une ou plusieurs mesures on utilise la méthode findM
 Exemple :
 
 ```python
+from CommodityGroup import CommodityGroup
+from IndicatorGroup import IndicatorGroup
+
 # Trouver le prix qui correspondent aux cultures de sorghum.
 fcd.findMeasurements(CommodityGroup.SORGHUM, IndicatorGroup.PRICES)
 ```
