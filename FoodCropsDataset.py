@@ -47,12 +47,12 @@ class FoodCropsDataset:
             unit = createUnit(id, row["SC_Unit_Desc"])
             # Création/récupération de l'indicateur
             indicator = self.factory.createIndicator(row["SC_Attribute_ID"], row["SC_Frequency_ID"], row["SC_Frequency_Desc"], row["SC_Geography_ID"], indicatorGroup, unit)
-            
+
             # Récupération de groupe des cultures vivières
             commodityGroup = CommodityGroup(row["SC_GroupCommod_ID"])
             # Crétion/récupération de la culture vivière
             commodity = self.factory.createCommodity(commodityGroup, row["SC_Commodity_ID"], row["SC_Commodity_Desc"])
-    
+
             # Création de la mesure
             measurement = self.factory.createMeasurement(index, row["Year_ID"], row["Amount"], row["Timeperiod_ID"], row["Timeperiod_Desc"], commodity, indicator)
             self.__measurements.append(measurement)
@@ -102,7 +102,7 @@ class FoodCropsDataset:
                 if measure in l:
                     new_list.append(measure)
             measurementList = new_list
-        
+
         if unit is not None:
             new_list = []
             l = self.__unitMeasurementIndex.get(unit, [])
@@ -118,5 +118,5 @@ if __name__ == "__main__":
     fcd = FoodCropsDataset(f)
     fcd.load("FeedGrains.csv")
 
-    print(fcd.findMeasurements(CommodityGroup.SORGHUM, IndicatorGroup.TRANSPORTATION))
-
+    liste = fcd.findMeasurements(CommodityGroup.SORGHUM, IndicatorGroup.PRICES)
+    liste[1].describe()

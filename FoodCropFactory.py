@@ -29,49 +29,49 @@ class FoodCropFactory():
         else:
             return self.__unitsRegistry[id]
 
-    def createPrice(self, id: int) -> Unit:
+    def createPrice(self, id: int, name: str) -> Unit:
         if id not in self.__unitsRegistry:
-            p = Price(id)
+            p = Price(id, name)
             self.__unitsRegistry[id] = p
             return p
         else:
             return self.__unitsRegistry[id]
 
-    def createWeight(self, id: int, weight: float) -> Unit:
+    def createWeight(self, id: int, weight: float, name: str) -> Unit:
         if id not in self.__unitsRegistry:
-            w = Weight(id, weight)
+            w = Weight(id, weight, name)
             self.__unitsRegistry[id] = w
             return w
         else:
             return self.__unitsRegistry[id]
 
-    def createSurface(self, id: int) -> Unit:
+    def createSurface(self, id: int, name: str) -> Unit:
         if id not in self.__unitsRegistry:
-            s = Surface(id)
+            s = Surface(id, name)
             self.__unitsRegistry[id] = s
             return s
         else:
             return self.__unitsRegistry[id]
 
-    def createCount(self, id: int, what: str) -> Unit:
+    def createCount(self, id: int, what: str, name: str) -> Unit:
         if id not in self.__unitsRegistry:
-            c = Count(id)
+            c = Count(id,  name)
             self.__unitsRegistry[id] = c
             return c
         else:
             return self.__unitsRegistry[id]
 
-    def createRatio(self, id: int) -> Unit:
+    def createRatio(self, id: int, name: str) -> Unit:
         if id not in self.__unitsRegistry:
-            r = Ratio(id)
+            r = Ratio(id, name)
             self.__unitsRegistry[id] = r
             return r
         else:
             return self.__unitsRegistry[id]
 
-    def createUnitRatio(self, id: int, unit1: Unit, unit2: Unit) -> Unit:
+    def createUnitRatio(self, id: int, unit1: Unit, unit2: Unit, name: str) -> Unit:
         if id not in self.__unitsRegistry:
-            ur = UnitRatio(id, unit1, unit2)
+            ur = UnitRatio(id, unit1, unit2, name)
             self.__unitsRegistry[id] = ur
             return ur
         else:

@@ -7,6 +7,6 @@ class Commodity(Describable):
         self.id = id
         self.group = group
         self.__name = name
-    
+
     def describe(self):
-        return f'Commodité {self.id}'
+        return f'Commodité {self.name} : {self.group}'
