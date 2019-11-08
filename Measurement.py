@@ -11,5 +11,5 @@ class Measurement(Describable):
         self.commodity = commodity
         self.indicator = indicator
 
-    def descibe(self):
-        return f'Measurement of {self.__value}: année-{self.__year}, période-{self.__timeperiod}-{self.__timeperiodDescr}, commodity-{self.commodity}, indicator-{self.indicator}'
+    def describe(self):
+        return f'Measurement of {self.__value}: année-{self.__year}, période-{self.__timeperiodId}-{self.__timeperiodDescr}, commodity-{self.commodity}, indicator-{self.indicator}'

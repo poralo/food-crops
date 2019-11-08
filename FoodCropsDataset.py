@@ -26,7 +26,7 @@ class FoodCropsDataset:
             indicatorGroup = IndicatorGroup(row["SC_Group_ID"])
             # Création/récupération de l'unité de l'indicateur
             id = row["SC_Unit_ID"]
-            unit = self.factory.createPrice(id)
+            unit = self.factory.createPrice(id,"name")
             # Création/récupération de l'indicateur
             indicator = self.factory.createIndicator(row["SC_Attribute_ID"], row["SC_Frequency_ID"], row["SC_Frequency_Desc"], row["SC_Geography_ID"], indicatorGroup, unit)
 
@@ -98,6 +98,7 @@ class FoodCropsDataset:
 if __name__ == "__main__":
     f = FoodCropFactory()
     fcd = FoodCropsDataset(f)
-    fcd.load("FeedGrainsLight.csv")
+    fcd.load("FeedGrains.csv")
 
-    print(fcd.findMeasurements(CommodityGroup.SORGHUM, IndicatorGroup.TRANSPORTATION))
+    liste = fcd.findMeasurements(CommodityGroup.SORGHUM, IndicatorGroup.PRICES)
+    liste[1].describe()

@@ -1,0 +1,3 @@
+SC_Group_ID,SC_Group_Desc,SC_GroupCommod_ID,SC_GroupCommod_Desc,SC_Geography_ID,SortOrder,SC_GeographyIndented_Desc,SC_Commodity_ID,SC_Commodity_Desc,SC_Attribute_ID,SC_Attribute_Desc,SC_Unit_ID,SC_Unit_Desc,Year_ID,SC_Frequency_ID,SC_Frequency_Desc,Timeperiod_ID,Timeperiod_Desc,Amount
+1,"Prices",17,"Oats",1,0.800,"United States",3,"Oats",5,"Prices received by farmers",4,"Dollars per bushel",1949,1,"Monthly",1,"Jan",0.762
+1,"Prices",20,"Sorghum",1,0.800,"United States",4,"Sorghum",5,"Prices received by farmers",4,"Dollars per bushel",1997,1,"Monthly",9,"Sep",2.24
