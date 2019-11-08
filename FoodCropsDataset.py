@@ -101,4 +101,6 @@ if __name__ == "__main__":
     fcd.load("FeedGrains.csv")
 
     liste = fcd.findMeasurements(CommodityGroup.SORGHUM, IndicatorGroup.PRICES)
-    liste[1].describe()
+    print(liste[0].describe())
+    print(liste[0].commodity.describe())
+    print(liste[0].indicator.describe())
