@@ -55,7 +55,7 @@ class FoodCropFactory():
 
     def createCount(self, id: int, what: str, name: str) -> Unit:
         if id not in self.__unitsRegistry:
-            c = Count(id,  name)
+            c = Count(id, what, name)
             self.__unitsRegistry[id] = c
             return c
         else:

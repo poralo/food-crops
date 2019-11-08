@@ -36,6 +36,15 @@ class FoodCropsDataset:
             12: self.factory.createUnitRatio(11, self.factory.createPrice(100, "Dollars"), self.factory.createWeight(105, 1, "ton"), "Dollars per ton"),
             13: self.factory.createRatio(13, "Ratio"),
             14: self.factory.createUnitRatio(14, self.factory.createPrice(106, "Cents"), self.factory.createWeight(107, 1, "pound"), "Cents per pound"),
+            15: self.factory.createRatio(15, "Index"),
+            16: self.factory.createVolume(16, "Carloads originated"),
+            17: self.factory.createVolume(17, "1,000 liters"),
+            18: self.factory.createVolume(18, "Gallons"),
+            31: self.factory.createUnitRatio(31, self.factory.createPrice(100, "Dollars"), self.factory.createWeight(108, 1, "short ton"), "Dollars per short ton"),
+            41: self.factory.createWeight(41, 1, "Ton"),
+            44: self.factory.createSurface(44, "1,000 hectare"),
+            45: self.factory.createUnitRatio(109, 1, self.factory.createWeight(3, 1, "Metric tons"), self.factory.createSurface(1010, "hectare"), "Metric tons per hectare"),
+            46: self.factory.createCount(46, "Million animal units"),
         }
 
         for index, row in dataframe.iterrows():
