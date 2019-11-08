@@ -21,9 +21,9 @@ class FoodCropFactory():
         self.__indicatorsRegistry = {}
         self.__commodityRegistry = {}
 
-    def createVolume(self, id: int) -> Unit:
+    def createVolume(self, id: int, name: str) -> Unit:
         if id not in self.__unitsRegistry:
-            u = Volume(id)
+            u = Volume(id, name)
             self.__unitsRegistry[id] = u
             return u
         else:

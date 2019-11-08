@@ -21,12 +21,30 @@ class FoodCropsDataset:
         dataframe = dataframe.dropna()
         dataframe.reset_index(drop=True)
 
+        units = {
+            1: self.factory.createCount(1, "Million bushels"),
+            2: self.factory.createSurface(2, "Million acres"),
+            3: self.factory.createVolume(3, "Bushels"),
+            4: self.factory.createUnitRatio(4, self.factory.createPrice(100, "Dollars"), self.factory.createVolume(101, "bushel"), "Dollars per bushel"),
+            5: self.factory.createUnitRatio(5, self.factory.createPrice(100, "Dollars"), self.factory.createWeight(102, 1, "cwt"), "Dollars per cwt"),
+            6: self.factory.createUnitRatio(6, self.factory.createWeight(3, 1, "Bushels"), self.factory.createSurface(103, "acre"), "Bushels per acre"),
+            7: self.factory.createWeight(7, 1, "1,000 metric tons"),
+            8: self.factory.createWeight(8, 1, "Million metric tons"),
+            9: self.factory.createWeight(9, 1, "1,000 tons"),
+            10: self.factory.createSurface(10, "1,000 acres"),
+            11: self.factory.createUnitRatio(11, self.factory.createWeight(104, 1, "Tons"), self.factory.createSurface(103, "acre"), "Tons per acre"),
+            12: self.factory.createUnitRatio(11, self.factory.createPrice(100, "Dollars"), self.factory.createWeight(105, 1, "ton"), "Dollars per ton"),
+            13: self.factory.createRatio(13, "Ratio"),
+            14: self.factory.createUnitRatio(14, self.factory.createPrice(106, "Cents"), self.factory.createWeight(107, 1, "pound"), "Cents per pound"),
+        }
+
         for index, row in dataframe.iterrows():
             # Récupération du groupe de l'indicateur
             indicatorGroup = IndicatorGroup(row["SC_Group_ID"])
             # Création/récupération de l'unité de l'indicateur
             id = row["SC_Unit_ID"]
-            unit = self.factory.createPrice(id)
+            createUnit = units[id]
+            unit = createUnit(id, row["SC_Unit_Desc"])
             # Création/récupération de l'indicateur
             indicator = self.factory.createIndicator(row["SC_Attribute_ID"], row["SC_Frequency_ID"], row["SC_Frequency_Desc"], row["SC_Geography_ID"], indicatorGroup, unit)
             
