@@ -100,5 +100,4 @@ if __name__ == "__main__":
     fcd = FoodCropsDataset(f)
     fcd.load("FeedGrains.csv")
 
-    print(fcd.findMeasurements(CommodityGroup.SORGHUM, IndicatorGroup.TRANSPORTATION))
-
+    print(fcd.findMeasurements(CommodityGroup.SORGHUM, IndicatorGroup.PRICES))
