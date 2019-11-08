@@ -13,5 +13,4 @@ class Indicator(Describable):
         self.__geogLocation = geogLocation
 
     def describe(self):
-        return f'Indicator {self.id}'
-        
+        return f'Indicator {self.id} : unité-{self.unit}, localisation-{self.__geogLocation}, fréquence-{self.__frequencyDesc}  '
