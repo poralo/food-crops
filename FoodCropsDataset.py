@@ -53,6 +53,7 @@ class FoodCropsDataset:
             # Création/récupération de l'unité de l'indicateur
             id = row["SC_Unit_ID"]
             createUnit = units[id]
+            # Conflit : unit = self.factory.createPrice(id,"name")
             unit = createUnit(id, row["SC_Unit_Desc"])
             # Création/récupération de l'indicateur
             indicator = self.factory.createIndicator(row["SC_Attribute_ID"], row["SC_Frequency_ID"], row["SC_Frequency_Desc"], row["SC_Geography_ID"], indicatorGroup, unit)
@@ -129,3 +130,6 @@ if __name__ == "__main__":
 
     liste = fcd.findMeasurements(CommodityGroup.SORGHUM, IndicatorGroup.PRICES)
     liste[1].describe()
+    print(liste[0].describe())
+    print(liste[0].commodity.describe())
+    print(liste[0].indicator.describe())
