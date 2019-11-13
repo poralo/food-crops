@@ -12,4 +12,4 @@ class Measurement(Describable):
         self.indicator = indicator
 
     def describe(self):
-        return f'Measurement of {self.__value}: {self.__timeperiodId}, {self.__year}'
+        return f'Measurement du {self.__timeperiodDescr} de l\'année {self.__year} :\n    {self.commodity.describe()}\n    {self.indicator.describe()}\n    Valeur : {self.__value} {self.indicator.unit.describe()}'

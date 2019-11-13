@@ -22,29 +22,29 @@ class FoodCropsDataset:
         dataframe.reset_index(drop=True)
 
         units = {
-            1: self.factory.createCount(1, "Million bushels"),
+            1: self.factory.createCount(1, "Million bushels", "Million bushels"),
             2: self.factory.createSurface(2, "Million acres"),
             3: self.factory.createVolume(3, "Bushels"),
-            4: self.factory.createUnitRatio(4, self.factory.createPrice(100, "Dollars"), self.factory.createVolume(101, "bushel"), "Dollars per bushel"),
-            5: self.factory.createUnitRatio(5, self.factory.createPrice(100, "Dollars"), self.factory.createWeight(102, 1, "cwt"), "Dollars per cwt"),
-            6: self.factory.createUnitRatio(6, self.factory.createWeight(3, 1, "Bushels"), self.factory.createSurface(103, "acre"), "Bushels per acre"),
+            4: self.factory.createUnitRatio(4, self.factory.createPrice(100, "Dollars"), self.factory.createVolume(101, "bushel")),
+            5: self.factory.createUnitRatio(5, self.factory.createPrice(100, "Dollars"), self.factory.createWeight(102, 1, "cwt")),
+            6: self.factory.createUnitRatio(6, self.factory.createWeight(3, 1, "Bushels"), self.factory.createSurface(103, "acre")),
             7: self.factory.createWeight(7, 1, "1,000 metric tons"),
             8: self.factory.createWeight(8, 1, "Million metric tons"),
             9: self.factory.createWeight(9, 1, "1,000 tons"),
             10: self.factory.createSurface(10, "1,000 acres"),
-            11: self.factory.createUnitRatio(11, self.factory.createWeight(104, 1, "Tons"), self.factory.createSurface(103, "acre"), "Tons per acre"),
-            12: self.factory.createUnitRatio(11, self.factory.createPrice(100, "Dollars"), self.factory.createWeight(105, 1, "ton"), "Dollars per ton"),
+            11: self.factory.createUnitRatio(11, self.factory.createWeight(104, 1, "Tons"), self.factory.createSurface(103, "acre")),
+            12: self.factory.createUnitRatio(11, self.factory.createPrice(100, "Dollars"), self.factory.createWeight(105, 1, "ton")),
             13: self.factory.createRatio(13, "Ratio"),
-            14: self.factory.createUnitRatio(14, self.factory.createPrice(106, "Cents"), self.factory.createWeight(107, 1, "pound"), "Cents per pound"),
+            14: self.factory.createUnitRatio(14, self.factory.createPrice(106, "Cents"), self.factory.createWeight(107, 1, "pound")),
             15: self.factory.createRatio(15, "Index"),
             16: self.factory.createVolume(16, "Carloads originated"),
             17: self.factory.createVolume(17, "1,000 liters"),
             18: self.factory.createVolume(18, "Gallons"),
-            31: self.factory.createUnitRatio(31, self.factory.createPrice(100, "Dollars"), self.factory.createWeight(108, 1, "short ton"), "Dollars per short ton"),
+            31: self.factory.createUnitRatio(31, self.factory.createPrice(100, "Dollars"), self.factory.createWeight(108, 1, "short ton")),
             41: self.factory.createWeight(41, 1, "Ton"),
             44: self.factory.createSurface(44, "1,000 hectare"),
-            45: self.factory.createUnitRatio(109, 1, self.factory.createWeight(3, 1, "Metric tons"), self.factory.createSurface(1010, "hectare"), "Metric tons per hectare"),
-            46: self.factory.createCount(46, "Million animal units"),
+            45: self.factory.createUnitRatio(45, self.factory.createWeight(3, 1, "Metric tons"), self.factory.createSurface(1010, "hectare")),
+            46: self.factory.createCount(46, "Million animal units", "Million animal units"),
         }
 
         for index, row in dataframe.iterrows():
@@ -52,11 +52,10 @@ class FoodCropsDataset:
             indicatorGroup = IndicatorGroup(row["SC_Group_ID"])
             # Création/récupération de l'unité de l'indicateur
             id = row["SC_Unit_ID"]
-            createUnit = units[id]
-            # Conflit : unit = self.factory.createPrice(id,"name")
-            unit = createUnit(id, row["SC_Unit_Desc"])
+            unit = units[id]
+
             # Création/récupération de l'indicateur
-            indicator = self.factory.createIndicator(row["SC_Attribute_ID"], row["SC_Frequency_ID"], row["SC_Frequency_Desc"], row["SC_Geography_ID"], indicatorGroup, unit)
+            indicator = self.factory.createIndicator(row["SC_Attribute_ID"], row["SC_Frequency_ID"], row["SC_Frequency_Desc"], row["SC_GeographyIndented_Desc"], indicatorGroup, unit)
 
             # Récupération de groupe des cultures vivières
             commodityGroup = CommodityGroup(row["SC_GroupCommod_ID"])
@@ -126,10 +125,9 @@ class FoodCropsDataset:
 if __name__ == "__main__":
     f = FoodCropFactory()
     fcd = FoodCropsDataset(f)
-    fcd.load("FeedGrains.csv")
+    fcd.load("FeedGrainsLight.csv")
 
-    liste = fcd.findMeasurements(CommodityGroup.SORGHUM, IndicatorGroup.PRICES)
-    liste[1].describe()
+    # CommodityGroup.SORGHUM, IndicatorGroup.PRICES
+    liste = fcd.findMeasurements()
+    print(liste)
     print(liste[0].describe())
-    print(liste[0].commodity.describe())
-    print(liste[0].indicator.describe())

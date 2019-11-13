@@ -6,4 +6,4 @@ class Unit(Describable):
         self.name = name
 
     def describe(self):
-        return f'Unit {self.name}'
+        return f'{self.name}'

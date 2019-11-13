@@ -69,9 +69,9 @@ class FoodCropFactory():
         else:
             return self.__unitsRegistry[id]
 
-    def createUnitRatio(self, id: int, unit1: Unit, unit2: Unit, name: str) -> Unit:
+    def createUnitRatio(self, id: int, unit1: Unit, unit2: Unit) -> Unit:
         if id not in self.__unitsRegistry:
-            ur = UnitRatio(id, unit1, unit2, name)
+            ur = UnitRatio(id, unit1, unit2)
             self.__unitsRegistry[id] = ur
             return ur
         else:
@@ -95,5 +95,5 @@ class FoodCropFactory():
             return self.__indicatorsRegistry[id]
 
     def createMeasurement(self, id: int, year: int, value: float, timeperiodId: int, timeperiodDesc: str, commodity: Commodity, indicator: Indicator) -> Measurement:
-        m = Measurement(id, year, value, timeperiodDesc, type, commodity, indicator)
+        m = Measurement(id, year, value, timeperiodId, timeperiodDesc, commodity, indicator)
         return m
