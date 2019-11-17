@@ -9,4 +9,4 @@ class Commodity(Describable):
         self.__name = name
 
     def describe(self):
-        return f'Culture vivière : {self.__name} du groupe {self.group.name}'
+        return f'Commodity : {self.__name} ({self.group.name})'
