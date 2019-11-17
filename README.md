@@ -63,6 +63,8 @@ Unité
 #### Exemple
 ```
 python FoodCropsDataset.py -ig PRICES
+python FoodCropsDataset.py -gl 'United States'
+python FoodCropsDataset.py -cg SORGHUM -gl 'United States'
 ```
 #### Remarque
 Tous les paramètres sont optionnels, le script peut être lancé avec n'importe quel nombre d'argument
