@@ -40,4 +40,29 @@ from IndicatorGroup import IndicatorGroup
 # Trouver la mesure du prix qui correspondent aux cultures de sorghum.
 fcd.findMeasurements(CommodityGroup.SORGHUM, IndicatorGroup.PRICES)
 ```
+## Lancement du script
 
+Pour afficher toutes les données food-crops : 
+```
+python FoodCropsDataset.py
+```
+
+Pour filtrer les données de food-crops selon des critères : 
+```
+python FoodCropsDataset.py -cg <str> -ig <str> -gl <str> -u <str>
+```
+- -cg
+Enum CommodityGroup
+- -ig 
+Enum IndicatorGroup
+- --gl
+Localisation géographique
+- --u
+Unité
+
+#### Exemple
+```
+python FoodCropsDataset.py -ig PRICES
+```
+#### Remarque
+Tous les paramètres sont optionnels, le script peut être lancé avec n'importe quel nombre d'argument
