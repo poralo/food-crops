@@ -1,6 +1,20 @@
 # Food Crops Project
 L'objectif de ce projet est de créer une API permettant de traiter et manipuler les données venant du fichier "FeedGrains.csv".
-  
+
+## Environnement de développement
+Version de python
+> python 3.7
+
+Systèmes d'exploitation
+> Windows et Mac
+
+Librairie python 
+> pandas
+
+Pour installer les modules nécessaires au bon fonctionnnement de food-crops:
+```
+pip install --upgrade *module name*
+``` 
   
 ## L'API s'utilise comme suit:
 ### Chargement des données :
