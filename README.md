@@ -74,3 +74,6 @@ Tous les paramètres sont optionnels, le script peut être lancé avec n'importe
 ## Répartition des tâches
 
 ![](images/gantt.png)
+
+#### Difficultés rencontrées
+La majeure partie de la difficulté venait de la compréhension du sujet, afin de bien cerner le travail demandé. Paul et Magali étant à l'aise en programmation, la partie code n'a pas vraiment posé de problème, et au contraire, ces derniers ont pu aider Jules et Julien, qui se sont concentrés sur la manière de modéliser le programme. Cette répartition des tâches découle d'un fort esprit d'équipe et d'une bonne répartition des compétences.
