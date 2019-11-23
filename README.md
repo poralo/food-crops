@@ -72,3 +72,5 @@ Tous les paramètres sont optionnels, le script peut être lancé avec n'importe
 # Déroulement du projet 
 
 ## Répartition des tâches
+
+![](images/.PNG)
