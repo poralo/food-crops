@@ -68,3 +68,7 @@ python Lunch.py -cg SORGHUM -gl 'United States'
 ```
 #### Remarque
 Tous les paramètres sont optionnels, le script peut être lancé avec n'importe quel nombre d'argument
+
+# Déroulement du projet 
+
+## Répartition des tâches
