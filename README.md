@@ -73,4 +73,4 @@ Tous les paramètres sont optionnels, le script peut être lancé avec n'importe
 
 ## Répartition des tâches
 
-![](images/.PNG)
+![](images/gantt.png)
