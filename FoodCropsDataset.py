@@ -2,7 +2,6 @@ from FoodCropFactory import FoodCropFactory
 from CommodityGroup import CommodityGroup
 from IndicatorGroup import IndicatorGroup
 from Unit import Unit
-import argparse
 import pandas
 
 class FoodCropsDataset:
