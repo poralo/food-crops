@@ -1,4 +1,6 @@
 # Food Crops Project
+## Arhainx Magali, Bertrand Julien, Eudeline Paul, Warot Jules
+
 L'objectif de ce projet est de créer une API permettant de traiter et manipuler les données venant du fichier "FeedGrains.csv".
 
 ## Environnement de développement
