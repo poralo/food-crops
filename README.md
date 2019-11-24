@@ -9,7 +9,7 @@ Systèmes d'exploitation
 > Windows et Mac
 
 Librairie python 
-> pandas
+> pandas, argparse
 
 Pour installer les modules nécessaires au bon fonctionnnement de food-crops:
 ```
@@ -62,9 +62,18 @@ Unité
 
 #### Exemple
 ```
-python FoodCropsDataset.py -ig PRICES
-python FoodCropsDataset.py -gl 'United States'
-python FoodCropsDataset.py -cg SORGHUM -gl 'United States'
+python Lunch.py -ig PRICES
+python Lunch.py -gl 'United States'
+python Lunch.py -cg SORGHUM -gl 'United States'
 ```
 #### Remarque
 Tous les paramètres sont optionnels, le script peut être lancé avec n'importe quel nombre d'argument
+
+# Déroulement du projet 
+
+## Répartition des tâches
+
+![](images/gantt.png)
+
+#### Difficultés rencontrées
+La majeure partie de la difficulté venait de la compréhension du sujet, afin de bien cerner le travail demandé. Paul et Magali étant à l'aise en programmation, la partie code n'a pas vraiment posé de problème, et au contraire, ces derniers ont pu aider Jules et Julien, qui se sont concentrés sur la manière de modéliser le programme. Cette répartition des tâches découle d'un fort esprit d'équipe et d'une bonne répartition des compétences.
