@@ -44,12 +44,12 @@ fcd.findMeasurements(CommodityGroup.SORGHUM, IndicatorGroup.PRICES)
 
 Pour afficher toutes les données food-crops : 
 ```
-python FoodCropsDataset.py
+python Lunch.py
 ```
 
 Pour filtrer les données de food-crops selon des critères : 
 ```
-python FoodCropsDataset.py -cg <str> -ig <str> -gl <str> -u <str>
+python Lunch.py -cg <str> -ig <str> -gl <str> -u <str>
 ```
 - -cg
 Enum CommodityGroup
